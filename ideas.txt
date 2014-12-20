@@ -1,0 +1,87 @@
+Also don't like Wasteland static missions seems like repetitive / boring.
+Had a simple mission for Epoch Server back in the day, randomize location / loot / randomized groups of AI's different range from mission aswell.
+Plus had a heli that would S+D between mission sites aswell.
+Just to keep players on there toes..
+Not sure if i will bother with missions, need to see how it works out
+
+Plus thinking about add a HC for civilian AI in the warzone, and players get punished for killing civilians...
+Makes players not shoot everything that moves.... i.e is that truck driving a road (friendly / hostile / neutral).
+
+enable termals on all vehicles. vehiclesetup.sqf disableITequipment = false
+improve cleanup script to remove money.
+Change towable and liftable objects
+Bigger backpack by default ?
+Add micros camera script
+reduce flares on jets
+Add radius to vehicle capture.
+Call heli taxi
+Make airwreck treasure mission in random location in mission.
+Make airdrop missions.
+Change near/medium/far distances.
+Put locks on doors.
+Mines invisible ?
+Obfuscate code.
+Put in mission encryption for some files.
+Voice punisher
+Add full description on how long vehicles save for when cars and vehicles are deleted etc
+All more information in mission scheduler in BERcon scheduler
+AI should have rockets for air and land
+Player extended armor off ....
+AI increase set damage to make them a bit easier to kill
+Clean up outposts ?
+Un Nerf assault boat mortar
+
+Money missions should only spawn when a certain percentage of players are on.
+
+Detect slow server FPS and Auto restart with warning.
+
+
+Put in server restart countdown onto player hud
+Put server uptime on to player view
+
+Destroy a lot of garages/fuel stations.
+
+In game buildings that are indestructible 
+Garage repairer
+Factories
+Offices
+Schools
+
+Mission idea.
+Wire a whole town to blow up ... big reward if bomb disarmed
+Assault the island mission AI should have a lot of static AA launhers. Naval mines ?
+
+Shacktac Hud
+
+Fix toss ropes battle eye restriction
+
+Randomise Heli spawns.
+
+Put in sling loaded only items.
+
+Different Money values depending on which terratory captured.
+ie: Rolling hills wind farm at the south east cornter of the map.
+
+Put Auto cannons on spawn island to protect spawning players
+
+Brand new players get 100k on start
+
+Confirm commander god view not enabled.
+
+Experience Point missions and XP for kills.
+
+Tax player bank for team kills
+
+Territory capture money should be saved and reloaded from the side you were on.
+
+Put in signs and flags at general stores gun stores etc
+Put in wind socks at airports.
+
+
+
+
+Introduce ranking system
+Higher rank more weapons /vehicles available
+
+town invasion supply crates are not all locked.
+
