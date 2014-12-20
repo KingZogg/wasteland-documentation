@@ -1,3 +1,13 @@
 First .. in Sourcetree reset the head forced to the right commit
 git reset --hard <sha1-commit-id>
 git push origin HEAD --force
+
+Global settings for line endings
+
+The git config core.autocrlf command is used to change how Git handles line endings. It takes a single argument.
+
+On Windows, you simply pass true to the configuration. For example:
+
+git config --global core.autocrlf true
+# Configure Git on Windows to properly handle line endings
+You can also provide a special --global flag, which makes Git use the same settings for line endings across every local Git repository on your computer.
