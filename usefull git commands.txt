@@ -12,4 +12,6 @@ git config --global core.autocrlf true
 # Configure Git on Windows to properly handle line endings
 You can also provide a special --global flag, which makes Git use the same settings for line endings across every local Git repository on your computer.
 
-test
+
+
+$ git checkout --orphan NEWBRANCH
