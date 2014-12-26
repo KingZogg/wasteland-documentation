@@ -1,0 +1,113 @@
+I am getting the following error.
+window title.
+arma3server.exe - system error
+Content
+The program can't start because MSVCR120.dll is missing from your computer. Try reinstalling the program to fix this problem.
+
+I can confirm that the file is in C:\windows\system32.
+
+Furthermore, I can run the old TOPARMA/a3wasteland-dxtdb-master repository (now removed from git) and it does NOT produce this error and the extDB is working fine with that version.
+
+RPT.
+12:49:32 "WASTELAND SERVER - Initializing Server Vars"
+12:49:32 "WASTELAND SERVER - Initializing Server Compile"
+12:49:32 "WASTELAND SERVER - Initializing Server Relations"
+12:49:32 "WASTELAND SERVER - Server Compile Finished"
+12:49:32 "extDB: Version: 20"
+12:49:32 "extDB: Connected to Database"
+12:49:32 "extDB: Initalized DB_Custom_V3 Protocol"
+12:49:32 "extDB: Initalized Misc Protocol"
+12:49:32 "extDB: Locked"
+12:49:32 "extDB: Debug Output Enabled"
+12:50:15 "DEBUG ASYNC: [1,[1,[[true]]]]"
+12:50:15 "DEBUG ----- extDB ASync: Complete Time:42.863  Input String:checkDBVersion"
+12:50:15 "DEBUG ASYNC: [1,[1,[[1]]]]"
+12:50:15 "DEBUG ----- extDB ASync: Complete Time:0.0180054  Input String:getDBVersion"
+12:50:15 "DEBUG ASYNC: [1,[1,[[true]]]]"
+12:50:15 "DEBUG ----- extDB ASync: Complete Time:0.201996  Input String:existServer:1"
+12:50:15 "[INFO] A3W playerSaving = ON"
+12:50:15 "[INFO] A3W baseSaving = ON"
+12:50:15 "[INFO] A3W boxSaving = ON"
+12:50:15 "[INFO] A3W staticWeaponSaving = ON"
+12:50:15 "[INFO] A3W warchestSaving = ON"
+12:50:15 "[INFO] A3W warchestMoneySaving = ON"
+12:50:15 "[INFO] A3W spawnBeaconSaving = ON"
+12:50:16 "DEBUG ASYNC: 
+
+extDB LOG
+[2014-Dec-24 12:49:32.773749]: ThreadID 0x000000b4: extDB: Version: 20
+[2014-Dec-24 12:49:32.773749]: ThreadID 0x000000b4: extDB: Found extdb-conf.ini
+[2014-Dec-24 12:49:32.773749]: ThreadID 0x000000b4: extDB: Creating Worker Thread +1
+[2014-Dec-24 12:49:32.773749]: ThreadID 0x000000b4: extDB: Creating Worker Thread +1
+[2014-Dec-24 12:49:32.773749]: ThreadID 0x000000b4: extDB: Creating Worker Thread +1
+[2014-Dec-24 12:49:32.773749]: ThreadID 0x000000b4: extDB: Creating Worker Thread +1
+[2014-Dec-24 12:49:32.774737]: ThreadID 0x000000b4: extDB: Creating Worker Thread +1
+[2014-Dec-24 12:49:32.774737]: ThreadID 0x000000b4: extDB: Creating Worker Thread +1
+[2014-Dec-24 12:49:32.774737]: ThreadID 0x000000b4: extDB: Creating Worker Thread +1
+[2014-Dec-24 12:49:32.774737]: ThreadID 0x000000b4: extDB: Creating Worker Thread +1
+[2014-Dec-24 12:49:32.793755]: ThreadID 0x000000b4: extDB: Database Type: MySQL
+[2014-Dec-24 12:49:32.796758]: ThreadID 0x000000b4: extDB: Database Session Pool Started
+
+
+When retrying the extDB_Beta I replaced all the TOPARMA/a3wasteland-dxtdb-master files with the correct extDB_Beta release files and ran a3wasteland_db_v2.02.sql again before retesting.
+
+I did note that wasteland.ini in the release pack had a slight error ? 
+[getDBVersion]
+SQL1_1 = SELECT IFNULL ((SELECT Value FROM DBInfo WHERE Name = 'Version'), '2.0');
+So I changed that to 
+[getDBVersion]
+SQL1_1 = SELECT IFNULL ((SELECT Value FROM DBInfo WHERE Name = 'Version'), '2.02');
+But it didn't help.
+
+
+
+Things I have tried to do to fix this.
+
+Replace the A3W_extDB_Pack files
+extDB.dll
+tbb.dll
+tbbmalloc.dll
+With Torndecos's build 23 versions.
+
+This still produces the error above.
+
+Replace the extDB_Beta pbo with the release file v1.0b
+This does not produce the error, but obviously this version is not setup to use extDB.
+
+RPT. after I press ok to clear the error on the server (it's my own dedicated box btw)
+13:50:24 "WASTELAND SERVER - Server Compile Finished"
+13:50:38 Error: Object(3 : 0) not found
+13:50:38 "[INFO] ### A3W NOT running with extDB!"
+13:50:38 "[INFO] ### Saving method = profileNamespace"
+13:50:38 "[INFO] A3W playerSaving = ON"
+13:50:38 "[INFO] A3W baseSaving = ON"
+13:50:38 "[INFO] A3W vehicleSaving = ON"
+13:50:38 "[INFO] A3W boxSaving = ON"
+13:50:38 "[INFO] A3W staticWeaponSaving = ON"
+13:50:38 "[INFO] A3W warchestSaving = ON"
+13:50:38 "[INFO] A3W warchestMoneySaving = ON"
+13:50:38 "[INFO] A3W spawnBeaconSaving = ON"
+13:50:38 "Player connected: King Zogg
+
+
+
+MAIN CONFIG IN C:\GAMES\ARMA3\A3MASTER\A3WASTELAND_SETTINGS
+// Persistence settings
+A3W_savingMethod = "extDB";      // Method used for saving data ("profile", "iniDB", "extDB")
+
+
+STARTUP PARAMETERS AND MALLOC
+== C:\Games\Arma3\A3Master\arma3server.exe
+== arma3server.exe  -port=2302 -config=CONFIG_Vanilla.cfg -world=empty -maxMem=8192 -enableHT -mod= -cfg=Arma3.cfg -profiles=c:\Games\Arma3\A3Master -BEpath=c:\Games\ArmA3\A3Master\battleye  -loadMissionToMemory
+
+Original output filename: Arma3Retail_Server
+Exe timestamp: 2014/12/04 11:03:24
+Current time:  2014/12/24 13:16:53
+
+Type: Public
+Branch: Stable
+Version: 1.36.128579
+
+Allocator: C:\Games\Arma3\A3Master\dll\tbb4malloc_bi.dll
+
+Cheers, Zogg
