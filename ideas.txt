@@ -7,6 +7,10 @@ Not sure if i will bother with missions, need to see how it works out
 Plus thinking about add a HC for civilian AI in the warzone, and players get punished for killing civilians...
 Makes players not shoot everything that moves.... i.e is that truck driving a road (friendly / hostile / neutral).
 
+Hospital ONLY for full heal !
+Out of order signs on ATMS that are not used
+
+
 enable termals on all vehicles. vehiclesetup.sqf disableITequipment = false
 improve cleanup script to remove money.
 Change towable and liftable objects

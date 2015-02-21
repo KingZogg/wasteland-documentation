@@ -1,0 +1,37 @@
+Create directory on server called "SERVER" in A3Master directory. Make it ALL CAPS .. so you notice it.
+You can change the name to anything you like but it's harder for people to spot the subtle changes you are about to make if you call it server.
+
+
+
+Only 3 files need to be changed by adding in an extra backslash which allows the files to be found.
+
+IN the PBO you will be making change the following files.
+\server\init.sqf
+from Line 267 call compile preprocessFileLineNumbers "server\missions\setupMissionArrays.sqf";
+to Line 267 call compile preprocessFileLineNumbers "\server\missions\setupMissionArrays.sqf"; //note the extra \     "\server
+
+from Line 356: 	[] execVM "server\missions\masterController.sqf";
+to Line 356: 	[] execVM "\server\missions\masterController.sqf";
+
+\server\functions\serverCompile.sqf
+from Line 32 mission_VehicleCapture = "server\missions\mainMissions\mission_VehicleCapture.sqf" call mf_compile;
+to Line 32 mission_VehicleCapture = "\server\missions\mainMissions\mission_VehicleCapture.sqf" call mf_compile; //note the extra \     "\server
+
+
+In the missions folder SERVER you created above and which is NOT in pbo format ie: don't pack it. Change the following files.
+
+server\missions\factoryMethods\attemptCompileMissions.sqf
+from line 31	missionNamespace setVariable [format ["%1Processor", _x], (format ["server\missions\%1Processor.sqf", _x]) call mf_compile];
+to line 31	missionNamespace setVariable [format ["%1Processor", _x], (format ["\server\missions\%1Processor.sqf", _x]) call mf_compile]; //note the extra \     "\server
+
+server\missions\masterController.sqf
+from Line 267 call compile preprocessFileLineNumbers "server\missions\setupMissionArrays.sqf";
+to Line 267 call compile preprocessFileLineNumbers "\server\missions\setupMissionArrays.sqf"; //note the extra \     "\server
+
+
+Copy Whole mission directory to the SERVER folder you just made.
+
+PBO the A3Wasteland.Altis file (make sure the mission file has been removed.)
+Copy to the server \mpmissions directory.
+
+In the arma3 startups parameters add -mod=SERVER
