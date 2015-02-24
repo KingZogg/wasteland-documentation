@@ -34,6 +34,7 @@ Player extended armor off ....
 AI increase set damage to make them a bit easier to kill
 Clean up outposts ?
 Un Nerf assault boat mortar
+Explain that if you have a medkit you can do a full heal
 
 Money missions should only spawn when a certain percentage of players are on.
 
